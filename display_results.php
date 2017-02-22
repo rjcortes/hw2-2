@@ -28,6 +28,9 @@
         $error_message = 'Years must be greater than zero.';
     } else if ( $years > 30 ) {
         $error_message = 'Years must be less than 31.';
+
+
+
     // set error message to empty string if no invalid entries
     } else {
         $error_message = ''; 
@@ -45,10 +48,21 @@
             $future_value + ($future_value * $interest_rate * .01); 
     }
 
+ 
+
     // apply currency and percent formatting
     $investment_f = '$'.number_format($investment, 2);
     $yearly_rate_f = $interest_rate.'%';
     $future_value_f = '$'.number_format($future_value, 2);
+
+    // date
+    $mydate=getdate(date("U"));
+
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +84,11 @@
         <span><?php echo $years; ?></span><br>
 
         <label>Future Value:</label>
-        <span><?php echo $future_value_f; ?></span><br>
-    </main>
+        <span><?php echo $future_value_f; ?></span><br><br>
+
+	<div><i>This calculation was done on <?php echo
+	"$mydate[mon]/$mydate[mday]/$mydate[year]"; ?></i></span>
+
+</main>
 </body>
 </html>
